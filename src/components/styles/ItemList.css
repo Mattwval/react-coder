@@ -1,0 +1,19 @@
+.itemList {
+    margin: 20px auto;
+    width: 80%;
+    height: fit-content;
+    background-color: green;
+}
+
+h2{
+    color: white;
+}
+
+.itemImg {
+    margin: 5px;
+    width: 300px;
+}
+
+.item {
+    display: inline-block;
+}

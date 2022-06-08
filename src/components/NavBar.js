@@ -1,7 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Navbar, Container, Nav, Link, NavDropdown } from 'react-bootstrap'
-
+import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap'
+import Cart from "./Cart";
 
 function NavBar() {
     return (
@@ -23,6 +23,7 @@ function NavBar() {
                     </Nav>
                 </Navbar.Collapse>
             </Container>
+            <Cart items="10"/>
         </Navbar>
     )
 }
