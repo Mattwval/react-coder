@@ -1,7 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap'
-import Cart from "./Cart";
+import Cart from "../Cart/Cart";
 
 function NavBar() {
     return (

@@ -1,6 +1,6 @@
 import React from "react";
-import './styles/ItemList.css'
-import Items from "./Items";
+import './ItemList.css'
+import Items from "../Items/Items";
 import {Row} from "react-bootstrap";
 
 const ItemListContainer = (props) => {
