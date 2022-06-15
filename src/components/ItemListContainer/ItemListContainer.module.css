@@ -9,11 +9,6 @@ h2{
     color: white;
 }
 
-.itemImg {
-    margin: 5px;
-    width: 300px;
-}
-
-.item {
-    display: inline-block;
+.cargando {
+    color: lightgrey;
 }
