@@ -1,22 +1,22 @@
 import React from "react";
 import styles from './ItemListContainer.module.css'
-import ItemsModule from "../Items/Items.module";
+import ItemList from "../ItemList/ItemList";
 import {Col, Row} from "react-bootstrap";
 import {useState, useEffect} from "react";
 
 const ItemListContainer = (props) => {
 
-    const imagenesIniciales = [
+    const productos = [
         {
-            "description": "lorem ipsum articulo 1",
+            "description": 'lorem ipsum 1',
             "img":'https://cdn.shopify.com/static/sample-images/shoes.jpeg?'
         },
         {
-                "description": "lorem ipsum articulo 2",
-                "img":'https://cdn.shopify.com/static/sample-images/garnished.jpeg?'
+            "description": 'lorem ipsum 2',
+            "img":'https://cdn.shopify.com/static/sample-images/garnished.jpeg?'
         },
         {
-            "description": "lorem ipsum articulo 3",
+            "description": 'lorem ipsum 3',
             "img":'https://cdn.shopify.com/static/sample-images/shoes.jpeg?'
         }]
 
@@ -29,7 +29,7 @@ const ItemListContainer = (props) => {
 
         setTimeout(() => {
 
-            setImagenes(imagenesIniciales)
+            setImagenes(productos)
             setCargandoText('')
 
         }, 2000)
@@ -42,7 +42,7 @@ const ItemListContainer = (props) => {
             <h2>{props.productos}</h2>
             <p className={styles.cargando}>{cargandoText}</p>
             <Row>
-                {imagenes.map((nombre, index) => <Col cols={4}><ItemsModule description={nombre.description} imgItem={nombre.img} key={index}/></Col>)}
+                <ItemList productos={productos} />
             </Row>
         </div>
     )
