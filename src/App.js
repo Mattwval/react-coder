@@ -11,10 +11,11 @@ function App() {
             <div className="App">
                 <Routes>
                     <Route path="/" element={<MainLayout/>}>
-                        <Route path="/" element={<MainPage/>}/>
                         <Route path="/producto/:id" element={<ItemDetailContainer/>}/>
-                        <Route path="/catalogo/:categoria" element={<ItemListContainer titulo="Remedios Lab"/>}/>
                         <Route path="/catalogo" element={<ItemListContainer titulo="Remedios Lab"/>}/>
+                        <Route path="/catalogo/:categoria" element={<ItemListContainer titulo="Remedios Lab"/>}/>
+
+                        <Route exact path="/" element={<MainPage/>}/>
                     </Route>
                     <Route path="*" element={<PageNotFound/>}/>
                 </Routes>

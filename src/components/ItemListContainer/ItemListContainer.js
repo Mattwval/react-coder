@@ -15,7 +15,6 @@ const ItemListContainer = (props) => {
 
     useEffect(() => {
         setTimeout(() => {
-            /*setProductos(data)*/
             setCargandoText('')
             obtenerData()
         }, 2000)

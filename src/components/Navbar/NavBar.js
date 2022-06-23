@@ -22,11 +22,21 @@ function NavBar() {
                         </Link>
                         <Nav.Link href="#link">Blog</Nav.Link>
                         <NavDropdown title="Productos" id="basic-nav-dropdown">
-                            <NavDropdown.Item href="#action/3.1">Hidrolatos</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.2">Aceites</NavDropdown.Item>
+                            <Link to="/catalogo/men's clothing" style={{ textDecoration: 'none' }} activeClassName='active'>
+                                <NavDropdown.Item href="/catalogo/men's clothing">Men's clothing</NavDropdown.Item>
+                            </Link>
+                            <Link to="catalogo/women's clothing" style={{ textDecoration: 'none' }} activeClassName='active'>
+                                <NavDropdown.Item href="/catalogo/women's clothing">Women's clothing</NavDropdown.Item>
+                            </Link>
+                            <Link to="/catalogo/jewelery" style={{ textDecoration: 'none' }} activeClassName='active'>
+                                <NavDropdown.Item href="/catalogo/Jewelery">Jewelery</NavDropdown.Item>
+                            </Link>
+                            <Link to="catalogo/electronics" style={{ textDecoration: 'none' }} activeClassName='active'>
+                                <NavDropdown.Item href="/catalogo/electronics">Electronics</NavDropdown.Item>
+                            </Link>
                             <NavDropdown.Divider />
                             <Link to='/catalogo' style={{ textDecoration: 'none' }} activeClassName='active'>
-                                <NavDropdown.Item href="#action/3.4">Todos</NavDropdown.Item>
+                                <NavDropdown.Item href="/catalogo">Todos</NavDropdown.Item>
                             </Link>
                         </NavDropdown>
                     </Nav>
