@@ -1,14 +1,26 @@
-import './App.css';
-import NavBar from "./components/Navbar/NavBar";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
+import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
+import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
+import MainPage from "./pages/MainPage";
+import MainLayout from "./layout/MainLayout";
+import PageNotFound from "./pages/PageNotFound";
 
 function App() {
-  return (
-    <div className="App">
-      <NavBar />
-        <ItemListContainer productos="RemediosLab"/>
-    </div>
-  );
+    return (
+        <Router>
+            <div className="App">
+                <Routes>
+                    <Route path="/" element={<MainLayout/>}>
+                        <Route path="/" element={<MainPage/>}/>
+                        <Route path="/producto/:id" element={<ItemDetailContainer/>}/>
+                        <Route path="/catalogo/:categoria" element={<ItemListContainer titulo="Remedios Lab"/>}/>
+                        <Route path="/catalogo" element={<ItemListContainer titulo="Remedios Lab"/>}/>
+                    </Route>
+                    <Route path="*" element={<PageNotFound/>}/>
+                </Routes>
+            </div>
+        </Router>
+    );
 }
 
 export default App;

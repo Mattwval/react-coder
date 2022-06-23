@@ -1,11 +1,12 @@
 p {
-    color:#282c34;
-    font-size: 20px;
-    font-family: "Segoe Print", serif;
+    color:white;
+    width: 16vw;
+    height: 12vh;
 }
 
 img {
-    height: fit-content;
-    width: 100%;
+    width: fit-content;
+    height: 20vh;
+    width: 60%;
 }
 
