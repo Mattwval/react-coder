@@ -5,7 +5,7 @@ import Cart from "../Cart/Cart";
 import { BsPaintBucket } from "react-icons/bs";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
-function NavBar() {
+function NavBar({cantidad}) {
 
     return (
         <Navbar bg="light" expand="lg">
@@ -42,7 +42,7 @@ function NavBar() {
                     </Nav>
                 </Navbar.Collapse>
             </Container>
-            <Cart items="10"/>
+            <Cart items={cantidad}/>
         </Navbar>
     )
 }

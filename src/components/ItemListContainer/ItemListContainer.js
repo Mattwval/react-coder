@@ -14,12 +14,14 @@ const ItemListContainer = (props) => {
     const [productos, setProductos] = useState([]);
 
     useEffect(() => {
+        setCargandoText("Cargando Productos")
+        setProductos([])
         setTimeout(() => {
             setCargandoText('')
             obtenerData()
         }, 2000)
 
-    }, [])
+    }, [categoria]) //Al poner entre corchetes a categoria, react va a volver a llamar a este useEffect cuadno la categoria cambie
 
     const obtenerData = async () => {
         const dataUrl = await fetch('https://fakestoreapi.com/products/')

@@ -1,10 +1,11 @@
 import NavBar from "../components/Navbar/NavBar";
 import {Outlet} from "react-router-dom";
 
-function MainLayout() {
+function MainLayout({cantidad}) {
+
     return (
         <div className="App">
-            <NavBar/>
+            <NavBar  cantidad={cantidad}/>
             <Outlet />
         </div>
     );

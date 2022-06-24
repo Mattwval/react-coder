@@ -2,16 +2,15 @@ import React from 'react';
 import {useState} from 'react';
 import './Counter.css'
 
-const Counter = ({initial, stock, add}) => {
+const Counter = ({initial, stock, add, onAdd}) => {
 
-    const [InputStock, setInputStock] = useState('1')
-    const [Cant, setCant] = useState(initial);
-    const [ShowBtt, setShowBtt] = useState(false);
+    const [inputStock, setInputStock] = useState('1')
+    const [cantidad, setCantidad] = useState(initial);
+    const [showBtt, setShowBtt] = useState(false);
 
     const addPr = (num) => {
-        setCant(Cant + num)
+        setCantidad(cantidad + num)
     };
-
 
     return (
         <div className="count-container">
@@ -19,23 +18,24 @@ const Counter = ({initial, stock, add}) => {
                 <button
                     className="contador"
                     onClick={() => addPr(-1)}
-                    disabled={Cant === initial}
-                    > -
+                    disabled={cantidad === initial}
+                > -
                 </button>
-                <span className="cantidad-container">{Cant}</span>
+                <span className="cantidad-container">{cantidad}</span>
                 <button className="contador"
                         onClick={() => addPr(+1)}
-                        disabled={Cant === stock}
+                        disabled={cantidad === stock}
                 > +
                 </button>
             </div>
 
             <button className="button-primary"
-                    onClick={() => {add = Cant; setShowBtt(true)
-                    return (
-                        Cant
-                    )}}
-                    disabled={stock === 0 ? true : false}
+                    onClick={() => {
+                        add = cantidad;
+                        setShowBtt(true)
+                        onAdd(cantidad)
+                    }}
+                    disabled={stock === 0}
             >
                 Añadir
             </button>
