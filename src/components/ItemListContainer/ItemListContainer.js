@@ -21,7 +21,7 @@ const ItemListContainer = (props) => {
             obtenerData()
         }, 2000)
 
-    }, [categoria]) //Al poner entre corchetes a categoria, react va a volver a llamar a este useEffect cuadno la categoria cambie
+    }, [categoria])
 
     const obtenerData = async () => {
         const dataUrl = await fetch('https://fakestoreapi.com/products/')
