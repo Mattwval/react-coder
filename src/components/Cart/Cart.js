@@ -8,7 +8,7 @@ import { cartContext } from "../../CartContext";
 const Cart = (props) => {
 
     let result = useContext(cartContext)
-    console.log(result.cantidadTotal) //Aca ud tenia result.cantidad_total, con guion bajo, ya vio?
+    console.log(result.cantidadTotal)
 
 
     return (

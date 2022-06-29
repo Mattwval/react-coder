@@ -11,7 +11,7 @@ let priceTotal = 0
 const CartContext = ({children}) => {
 
     const [carrito, setCarrito] = useState("");
-    const [cantidadTotal, setCantidadTotal] = useState(4);
+    const [cantidadTotal, setCantidadTotal] = useState(0);
     const [precioTotal, setPrecioTotal] = useState(0);
 
     const addItem = (producto) => {
@@ -37,7 +37,7 @@ const CartContext = ({children}) => {
 
     const contextValue = {
         carrito: carrito,
-        cantidadTotal: cantidadTotal, //Aca se llama sin guion bajo
+        cantidadTotal: cantidadTotal,
         precioTotal: precioTotal,
         agregarProducto: addItem,
         cambiarPrecio: cambiarPrecio
