@@ -4,8 +4,8 @@ import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailCont
 import MainPage from "./pages/MainPage";
 import MainLayout from "./layout/MainLayout";
 import PageNotFound from "./pages/PageNotFound";
-import { useState} from "react";
-import {Navbar} from "react-bootstrap";
+import {useState} from "react";
+
 
 function App() {
 
@@ -22,8 +22,8 @@ function App() {
                         <Route path="/producto/:id" element={<ItemDetailContainer onAdd={agregarCarrito}/>}/>
                         <Route path="/catalogo" element={<ItemListContainer titulo="Remedios Lab"/>}/>
                         <Route path="/catalogo/:categoria" element={<ItemListContainer titulo="Remedios Lab"/>}/>
-
                         <Route exact path="/" element={<MainPage/>}/>
+
                     </Route>
                     <Route path="*" element={<PageNotFound/>}/>
                 </Routes>

@@ -1,8 +1,11 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {useState} from 'react';
 import './Counter.css'
+import {cartContext} from "../../CartContext";
 
-const Counter = ({initial, stock, add, onAdd}) => {
+const Counter = ({initial, stock, add, onAdd, price, name, id}) => {
+
+    let cart = useContext(cartContext)
 
     const [inputStock, setInputStock] = useState('1')
     const [cantidad, setCantidad] = useState(initial);
@@ -34,6 +37,8 @@ const Counter = ({initial, stock, add, onAdd}) => {
                         add = cantidad;
                         setShowBtt(true)
                         onAdd(cantidad)
+                        cart.agregarProducto(name)
+                        cart.cambiarPrecio(price)
                     }}
                     disabled={stock === 0}
             >
