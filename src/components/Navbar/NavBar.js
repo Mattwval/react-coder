@@ -42,7 +42,7 @@ function NavBar({cantidad}) {
                     </Nav>
                 </Navbar.Collapse>
             </Container>
-            <Cart items={cantidad}/>
+            <Cart />
         </Navbar>
     )
 }

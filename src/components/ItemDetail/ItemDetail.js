@@ -1,11 +1,7 @@
 import React, {useContext} from "react";
 import Counter from "../Counter/Counter";
 
-const ItemDetail = ({producto, onAdd }) => {
-
-    const itemAgregado = (cantidad) => {
-        onAdd(cantidad)
-    }
+const ItemDetail = ({producto}) => {
 
     return (
         <div className='mt-5'>
@@ -13,7 +9,7 @@ const ItemDetail = ({producto, onAdd }) => {
             <h4>{producto.title}</h4>
             <div className='description'>{producto.description}</div>
             <div className='price mt-2 mb-2'>precio ${producto.price} c/u</div>
-            <Counter initial={1} stock={5} add={1} price={producto.price} name={producto.title} id={producto.id} onAdd={itemAgregado}/>
+            <Counter initial={1} stock={5} add={1} price={producto.price} name={producto.title} id={producto.id}/>
         </div>
     )
 

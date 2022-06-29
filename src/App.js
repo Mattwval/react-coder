@@ -9,17 +9,12 @@ import {useState} from "react";
 
 function App() {
 
-    const [cantidadProducto, setCantidadProducto ] = useState(0);
-
-    const agregarCarrito = (cantidad) => {
-            setCantidadProducto(cantidad + cantidadProducto)
-    }
     return (
         <Router>
             <div className="App">
                 <Routes>
-                    <Route path="/" element={<MainLayout cantidad={cantidadProducto}/>}>
-                        <Route path="/producto/:id" element={<ItemDetailContainer onAdd={agregarCarrito}/>}/>
+                    <Route path="/" element={<MainLayout />}>
+                        <Route path="/producto/:id" element={<ItemDetailContainer />}/>
                         <Route path="/catalogo" element={<ItemListContainer titulo="Remedios Lab"/>}/>
                         <Route path="/catalogo/:categoria" element={<ItemListContainer titulo="Remedios Lab"/>}/>
                         <Route exact path="/" element={<MainPage/>}/>

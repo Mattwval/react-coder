@@ -3,7 +3,7 @@ import {useState} from 'react';
 import './Counter.css'
 import {cartContext} from "../../CartContext";
 
-const Counter = ({initial, stock, add, onAdd, price, name, id}) => {
+const Counter = ({initial, stock, add, price, name, id}) => {
 
     let cart = useContext(cartContext)
 
@@ -36,9 +36,9 @@ const Counter = ({initial, stock, add, onAdd, price, name, id}) => {
                     onClick={() => {
                         add = cantidad;
                         setShowBtt(true)
-                        onAdd(cantidad)
                         cart.agregarProducto(name)
-                        cart.cambiarPrecio(price)
+                        cart.cambiarPrecio(price, cantidad)
+                        cart.cartNumber(cantidad)
                     }}
                     disabled={stock === 0}
             >

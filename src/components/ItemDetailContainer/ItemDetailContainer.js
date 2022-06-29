@@ -3,11 +3,7 @@ import { useParams } from "react-router";
 import ItemDetail from "../ItemDetail/ItemDetail";
 import { useState } from "react";
 
-const ItemDetailContainer = ({onAdd}) => {
-
-    const itemAgregado = (cantidad) => {
-        onAdd(cantidad)
-    }
+const ItemDetailContainer = () => {
 
     const {id} =  useParams()
 
@@ -31,7 +27,7 @@ const ItemDetailContainer = ({onAdd}) => {
 
     return (
         <div>
-            {producto ? <ItemDetail onAdd={itemAgregado} producto={producto} /> : <h3>{cargando}</h3>}
+            {producto ? <ItemDetail producto={producto} /> : <h3>{cargando}</h3>}
         </div>
     )
 }

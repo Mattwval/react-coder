@@ -5,17 +5,14 @@ import './Cart.css'
 import { useContext} from "react";
 import { cartContext } from "../../CartContext";
 
-const Cart = (props) => {
+const Cart = () => {
 
-    let result = useContext(cartContext)
-    console.log(result.cantidadTotal)
-
+    let cartCantidad = useContext(cartContext)
 
     return (
         <div className="cart">
             <FontAwesomeIcon icon={ faShoppingCart }  size='3x' color={'green'} />
-            <div className="productQuantitie">{result.cantidadTotal}</div>
-            <div className="productQuantitie">{result.precioTotal}</div>
+            <div className="productQuantitie">{cartCantidad.cantidadCart}</div>
         </div>
     )
 }
