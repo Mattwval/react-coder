@@ -4,6 +4,7 @@ import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailCont
 import MainPage from "./pages/MainPage";
 import MainLayout from "./layout/MainLayout";
 import PageNotFound from "./pages/PageNotFound";
+import ShoppingCart from "./components/ShoppingCart/ShoppingCart";
 import {useState} from "react";
 
 
@@ -17,6 +18,7 @@ function App() {
                         <Route path="/producto/:id" element={<ItemDetailContainer />}/>
                         <Route path="/catalogo" element={<ItemListContainer titulo="Remedios Lab"/>}/>
                         <Route path="/catalogo/:categoria" element={<ItemListContainer titulo="Remedios Lab"/>}/>
+                        <Route path="/carrito" element={<ShoppingCart />} />
                         <Route exact path="/" element={<MainPage/>}/>
 
                     </Route>

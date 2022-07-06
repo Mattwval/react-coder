@@ -5,53 +5,53 @@ export const cartContext = createContext();
 
 const Provider = cartContext.Provider;
 
-let productosName = []
-let priceTotal = 0
-let cantidadCartC = 0
+let productos = []
 
 const CartContext = ({children}) => {
 
-    const [carrito, setCarrito] = useState("");
-    const [cantidadTotal, setCantidadTotal] = useState(0);
-    const [precioTotal, setPrecioTotal] = useState(0);
-    const [cantidadCartf, setCantidadCartf] = useState(0)
+  /*  const [nombreProducto, setNombreProducto] = useState("");
+    const [valorProducto, setValorProducto] = useState(0);*/
+    const [cantidadItems, setCantidadItems] = useState(0)
 
-    const addItem = (producto) => {
 
-        if (!productosName.includes(producto)){
-            setCarrito(producto)
-            productosName.push(producto)
+    const addProducto = (nombre, precio, cantidad) => {
+
+        if(productos.length === 0) {
+            productos.push({
+                nombre: nombre,
+                precio: precio,
+                cantidad: cantidad
+            })
+        } else {
+            if(productos.find(item => item.nombre === nombre)) {
+                productos.map((item, index) => {
+                    if(productos[index].name === nombre){
+                        productos[index].precio += precio
+                        productos[index].cantidad += cantidad
+                    }
+                })
+            }
+            else {
+                productos.push({
+                    nombre: nombre,
+                    precio: precio,
+                    cantidad: cantidad
+                })
+            }
         }
-    }
-    const cartNumber = (cantidadCart, id) => {
-        setCantidadCartf(cantidadCart)
-        cantidadCartC += cantidadCart
-    }
-   /* const eliminarProducto = () => {
-    }
-    const actualizarProducto = () => {
-    }
-    const vaciarCarrito = (value) => {
-        setCantidadTotal(value)
-    }*/
 
-    const cambiarPrecio = (nuevoPrecio, cantidad) => {
-        setPrecioTotal(nuevoPrecio)
-        priceTotal += nuevoPrecio * cantidad
+        console.log(productos)
+        numberItems()
+    }
+
+    const numberItems = (number) => {
+        console.log(productos.length)
     }
 
     const contextValue = {
-        carrito: carrito,
-        cantidadTotal: cantidadTotal,
-        precioTotal: precioTotal,
-        cantidadCart: cantidadCartC,
-        cartNumber: cartNumber,
-        agregarProducto: addItem,
-        cambiarPrecio: cambiarPrecio
-        /*eliminarProducto: eliminarProducto,
-        actualizarProducto: actualizarProducto,
-        vaciarCarrito: vaciarCarrito,
-        cambiarPrecio: cambiarPrecio*/
+        addProducto: addProducto,
+        productosList: productos,
+
     }
 
     return (

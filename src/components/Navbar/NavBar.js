@@ -42,7 +42,10 @@ function NavBar({cantidad}) {
                     </Nav>
                 </Navbar.Collapse>
             </Container>
-            <Cart />
+            <Link to="/carrito" style={{textDecoration: 'none'}} activeClassName='active'>
+                <Cart />
+            </Link>
+
         </Navbar>
     )
 }
