@@ -12,7 +12,7 @@ const Cart = () => {
     return (
         <div className="cart">
             <FontAwesomeIcon icon={ faShoppingCart }  size='3x' color={'green'} />
-            <div className="productQuantitie"></div>
+            <div className="productQuantitie">{cartCantidad.cantidadItemsCart}</div>
         </div>
     )
 }

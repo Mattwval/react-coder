@@ -9,8 +9,6 @@ let productos = []
 
 const CartContext = ({children}) => {
 
-  /*  const [nombreProducto, setNombreProducto] = useState("");
-    const [valorProducto, setValorProducto] = useState(0);*/
     const [cantidadItems, setCantidadItems] = useState(0)
 
 
@@ -23,13 +21,15 @@ const CartContext = ({children}) => {
                 cantidad: cantidad
             })
         } else {
-            if(productos.find(item => item.nombre === nombre)) {
-                productos.map((item, index) => {
-                    if(productos[index].name === nombre){
-                        productos[index].precio += precio
-                        productos[index].cantidad += cantidad
+            if((productos.find(item => item.nombre === nombre))) {
+                 for(let i = 0; i < productos.length; i++) {
+                    for(let j = 0; j < productos.length; j++) {
+                        if(productos[i].nombre === nombre) {
+                            productos[j].precio += precio * cantidad
+                            productos[j].cantidad += cantidad
+                        }
                     }
-                })
+                }
             }
             else {
                 productos.push({
@@ -39,19 +39,17 @@ const CartContext = ({children}) => {
                 })
             }
         }
-
-        console.log(productos)
-        numberItems()
+        numberItems(productos)
     }
 
     const numberItems = (number) => {
-        console.log(productos.length)
+        setCantidadItems(number.length)
     }
 
     const contextValue = {
         addProducto: addProducto,
-        productosList: productos,
-
+        cantidadItemsCart: cantidadItems,
+        arrayProductos: productos
     }
 
     return (
