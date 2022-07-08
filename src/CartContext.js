@@ -12,13 +12,14 @@ const CartContext = ({children}) => {
     const [cantidadItems, setCantidadItems] = useState(0)
 
 
-    const addProducto = (nombre, precio, cantidad) => {
+    const addProducto = (nombre, precio, cantidad, id) => {
 
         if(productos.length === 0) {
             productos.push({
                 nombre: nombre,
                 precio: precio,
-                cantidad: cantidad
+                cantidad: cantidad,
+                id: id
             })
         } else {
             if((productos.find(item => item.nombre === nombre))) {
@@ -35,7 +36,8 @@ const CartContext = ({children}) => {
                 productos.push({
                     nombre: nombre,
                     precio: precio,
-                    cantidad: cantidad
+                    cantidad: cantidad,
+                    id: id
                 })
             }
         }
@@ -46,10 +48,24 @@ const CartContext = ({children}) => {
         setCantidadItems(number.length)
     }
 
+    const deleteItem = (id) => {
+        let index
+        for (let i = 0; i < productos.length; i++) {
+            if(productos.id === id) {
+                index = i
+            }
+            productos.splice(index, 1)
+            break
+        }
+
+        numberItems(productos)
+    }
+
     const contextValue = {
         addProducto: addProducto,
         cantidadItemsCart: cantidadItems,
-        arrayProductos: productos
+        arrayProductos: productos,
+        deleteItem: deleteItem
     }
 
     return (

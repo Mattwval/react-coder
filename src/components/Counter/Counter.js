@@ -36,8 +36,7 @@ const Counter = ({initial, stock, add, price, name, id}) => {
                     onClick={() => {
                         add = cantidad;
                         setShowBtt(true)
-
-                        cart.addProducto(name, price, cantidad)
+                        cart.addProducto(name, price, cantidad, id)
                     }}
                     disabled={stock === 0}
             >

@@ -33,7 +33,7 @@ function ShoppingCart () {
     return (
         <Container>
             <Row>
-                <Col cols={5}>PRODUCTO</Col>
+                <Col cols={6}>PRODUCTO</Col>
                 <Col cols={2}>VALOR</Col>
                 <Col cols={2}>UNIDADES</Col>
             </Row>
