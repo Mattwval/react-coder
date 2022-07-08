@@ -5,66 +5,65 @@ export const cartContext = createContext();
 
 const Provider = cartContext.Provider;
 
-let productos = []
 
 const CartContext = ({children}) => {
 
-    const [cantidadItems, setCantidadItems] = useState(0)
-
+    const [productos, setProductos] = useState([]);
 
     const addProducto = (nombre, precio, cantidad, id) => {
 
-        if(productos.length === 0) {
-            productos.push({
+        let arrayProductos = [...productos]
+
+        if (arrayProductos.length === 0) {
+            arrayProductos.push({
                 nombre: nombre,
-                precio: precio,
+                precio: precio * cantidad,
                 cantidad: cantidad,
                 id: id
             })
         } else {
-            if((productos.find(item => item.nombre === nombre))) {
-                 for(let i = 0; i < productos.length; i++) {
-                    for(let j = 0; j < productos.length; j++) {
-                        if(productos[i].nombre === nombre) {
-                            productos[j].precio += precio * cantidad
-                            productos[j].cantidad += cantidad
+            if ((arrayProductos.find(item => item.nombre === nombre))) {
+                for (let i = 0; i < arrayProductos.length; i++) {
+                    for (let j = 0; j < arrayProductos.length; j++) {
+                        if (arrayProductos[i].nombre === nombre) {
+                            arrayProductos[j].precio += precio * cantidad
+                            arrayProductos[j].cantidad += cantidad
                         }
                     }
                 }
-            }
-            else {
-                productos.push({
+            } else {
+                arrayProductos.push({
                     nombre: nombre,
-                    precio: precio,
+                    precio: precio * cantidad,
                     cantidad: cantidad,
                     id: id
                 })
             }
         }
-        numberItems(productos)
+        setProductos(arrayProductos)
     }
 
-    const numberItems = (number) => {
-        setCantidadItems(number.length)
-    }
 
     const deleteItem = (id) => {
-        let index
-        for (let i = 0; i < productos.length; i++) {
-            if(productos.id === id) {
-                index = i
-            }
-            productos.splice(index, 1)
-            break
-        }
+        let arrayProductos = [...productos];
 
-        numberItems(productos)
+        let index
+
+
+        for (let i = 0; i < arrayProductos.length; i++) {
+            if (arrayProductos[i].id === id) {
+                index = i
+                arrayProductos.splice(index, 1)
+                break
+            }
+        }
+        setProductos(arrayProductos);
     }
 
     const contextValue = {
         addProducto: addProducto,
-        cantidadItemsCart: cantidadItems,
         arrayProductos: productos,
+        cantidad: productos.length,
         deleteItem: deleteItem
     }
 

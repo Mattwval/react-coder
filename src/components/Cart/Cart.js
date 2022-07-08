@@ -7,12 +7,12 @@ import { cartContext } from "../../CartContext";
 
 const Cart = () => {
 
-    let cartCantidad = useContext(cartContext)
+    let cart = useContext(cartContext)
 
     return (
         <div className="cart">
             <FontAwesomeIcon icon={ faShoppingCart }  size='3x' color={'green'} />
-            <div className="productQuantitie">{cartCantidad.cantidadItemsCart}</div>
+            <div className="productQuantitie">{cart.cantidad}</div>
         </div>
     )
 }
