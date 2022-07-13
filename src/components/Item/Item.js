@@ -7,7 +7,6 @@ const Item = (props) => {
 
     return (
 
-
         <div className='mt-1'>
             <img src={props.producto.image}></img>
             <p>{props.producto.title}</p>

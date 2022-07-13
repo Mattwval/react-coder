@@ -12,7 +12,6 @@ const ItemDetail = ({producto}) => {
             <Counter initial={1} stock={5} add={1} price={producto.price} name={producto.title} id={producto.id}/>
         </div>
     )
-
 }
 
 export default ItemDetail
