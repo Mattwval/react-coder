@@ -4,20 +4,21 @@ import ItemDetail from "../ItemDetail/ItemDetail";
 import { useState } from "react";
 import {collection, getDocs} from "firebase/firestore";
 import {db} from "../../firebase-config";
+import {doc} from 'firebase/firestore'
 
 const ItemDetailContainer = () => {
 
     const {id} =  useParams()
 
     const [cargando, setCargando] = useState("cargando producto")
-    const [producto, setProducto] = useState()
-    const productosReference = collection(db, "items")
+    const [producto, setProducto] = useState({})
+    /*const productosReference = collection(db, "items")*/
 
     useEffect(() => {
 
         setTimeout(() => {
             setCargando("")
-            obtenerData()
+            obtenerData(id)
 
         }, 2000)
     }, [])
@@ -28,9 +29,15 @@ const ItemDetailContainer = () => {
         setProducto((data))
     }*/
 
-    const obtenerData = async () => {
+    /*const obtenerData = async () => {
         const data = await getDocs(productosReference);
         setProducto(data.docs.map((doc) => ({...doc.data(), id: doc.id})))
+    }*/
+
+    const obtenerData = async (id) => {
+        const data = doc(db, "items", id)
+        console.log(data)
+        setProducto(data)
     }
 
     return (
