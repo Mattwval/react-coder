@@ -17,36 +17,26 @@ const ItemListContainer = (props) => {
     const [productos, setProductos] = useState([]);
     const productosReference = collection(db, "items")
 
+    const getProductos = async () => {
+        const data = await getDocs(productosReference)
+        setProductos(data.docs.map((doc) => ({...doc.data(), id: doc.id})));
+    }
+
     useEffect(() => {
-        /*setCargandoText("Cargando Productos")
+        setCargandoText("Cargando Productos")
         setProductos([])
         setTimeout(() => {
+            getProductos()
             setCargandoText('')
-            obtenerData()
-        }, 2000)*/
+
+
+        }, 2000)
         
-        const getProductos = async () => {
-            const data = await getDocs(productosReference)
-            setProductos(data.docs.map((doc) => ({...doc.data(), id: doc.id})));
-        }
-        getProductos()
+
+
 
     }, [categoria])
 
-    /*const obtenerData = async () => {
-        const dataUrl = await fetch('https://fakestoreapi.com/products/')
-        const data = await dataUrl.json()
-        let newData = []
-        if(categoria) {
-            for(const producto of data ) {
-                if(producto.category === categoria)
-                    newData.push(producto)
-            }
-        } else {
-            newData = data
-        }
-        setProductos(newData)
-    }*/
 
     return (
         <div className={styles.itemList}>
