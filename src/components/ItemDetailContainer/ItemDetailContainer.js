@@ -4,7 +4,7 @@ import ItemDetail from "../ItemDetail/ItemDetail";
 import { useState } from "react";
 import {collection, getDoc, getDocs} from "firebase/firestore";
 import {db} from "../../firebase-config";
-import {doc} from 'firebase/firestore'
+
 
 const ItemDetailContainer = () => {
 
@@ -17,15 +17,22 @@ const ItemDetailContainer = () => {
 
         setTimeout(() => {
             obtenerData(id)
-
+            setCargando("")
         }, 2000)
     }, [])
 
 
     const obtenerData = async (id) => {
-        const data = await getDoc(doc(db, "items", id))
-        setProducto(data.data())
-        setCargando("")
+
+        const data = await getDocs(collection(db, "items"))
+        const dataDocs = data.docs
+        let producto = {}
+        for (let i = 0; i < dataDocs.length; i++) {
+            if(dataDocs[i].data().id == id) {
+                producto = dataDocs[i].data()
+            }
+        }
+        setProducto(producto)
     }
 
     return (

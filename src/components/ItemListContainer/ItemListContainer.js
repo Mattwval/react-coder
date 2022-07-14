@@ -5,7 +5,7 @@ import {Col, Row} from "react-bootstrap";
 import {useState, useEffect} from "react";
 import {useParams} from "react-router";
 import {db} from '../../firebase-config'
-import {collection,getDocs} from 'firebase/firestore'
+import {collection,getDocs, doc, getDoc} from 'firebase/firestore'
 
 
 const ItemListContainer = (props) => {
@@ -19,8 +19,20 @@ const ItemListContainer = (props) => {
 
     const getProductos = async () => {
         const data = await getDocs(productosReference)
-        setProductos(data.docs.map((doc) => ({...doc.data(), id: doc.id})));
+        if (categoria) {
+            let items = [];
+            const dataByCategory = data.docs
+            for (let i = 0; i < dataByCategory.length; i++ ) {
+                if(dataByCategory[i].data().category === categoria) {
+                    items.push(dataByCategory[i].data())
+                }
+            }
+            setProductos(items)
+        }else {
+            setProductos(data.docs.map((doc) => ({...doc.data(), id: doc.id})));
+        }
     }
+
 
     useEffect(() => {
         setCargandoText("Cargando Productos")
@@ -28,8 +40,6 @@ const ItemListContainer = (props) => {
         setTimeout(() => {
             getProductos()
             setCargandoText('')
-
-
         }, 2000)
         
 

@@ -5,7 +5,7 @@ import MainPage from "./pages/MainPage";
 import MainLayout from "./layout/MainLayout";
 import PageNotFound from "./pages/PageNotFound";
 import ShoppingCart from "./components/ShoppingCart/ShoppingCart";
-import {useState} from "react";
+
 
 
 function App() {
