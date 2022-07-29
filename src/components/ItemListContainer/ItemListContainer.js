@@ -1,7 +1,7 @@
 import React from "react";
 import styles from './ItemListContainer.module.css'
 import ItemList from "../ItemList/ItemList";
-import {Col, Row} from "react-bootstrap";
+import {Col, Container, Row} from "react-bootstrap";
 import {useState, useEffect} from "react";
 import {useParams} from "react-router";
 import {db} from '../../firebase-config'
@@ -49,13 +49,13 @@ const ItemListContainer = (props) => {
 
 
     return (
-        <div className={styles.itemList}>
+        <Container className={styles.itemList}>
             <h2>{props.titulo}</h2>
             <p className={styles.cargando}>{cargandoText}</p>
             <Row>
                 <ItemList productos={productos} />
             </Row>
-        </div>
+        </Container>
     )
 }
 export default ItemListContainer

@@ -11,7 +11,7 @@ const Cart = () => {
 
     return (
         <div className="cart">
-            <FontAwesomeIcon icon={ faShoppingCart }  size='3x' color={'green'} />
+            <FontAwesomeIcon icon={ faShoppingCart }  size='2x' color={'grey'} />
             <div className="productQuantitie">{cart.cantidad}</div>
         </div>
     )

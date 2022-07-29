@@ -2,19 +2,20 @@ import React, {useContext} from "react";
 import styles from './Item.css'
 import { Link } from "react-router-dom";
 import {cartContext} from "../../CartContext";
+import {Button, Card} from "react-bootstrap";
 
 const Item = (props) => {
 
     return (
 
-        <div className='mt-1'>
-            <img src={props.producto.image}></img>
+        <Card className='mt-1' className="cardItem">
+            <img src={props.producto.image} />
             <p>{props.producto.title}</p>
-            <Link to={`/producto/${props.producto.id}`}>
-                <button className='btn btn-secondary' >ver producto</button>
+            <Link to={`/producto/${props.producto.id}`} style={{width: "100%"}}>
+                <Button variant="secondary">ver producto</Button>
             </Link>
 
-        </div>
+        </Card>
     )
 }
 

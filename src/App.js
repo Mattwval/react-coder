@@ -16,11 +16,10 @@ function App() {
                 <Routes>
                     <Route path="/" element={<MainLayout />}>
                         <Route path="/producto/:id" element={<ItemDetailContainer />}/>
-                        <Route path="/catalogo" element={<ItemListContainer titulo="Remedios Lab"/>}/>
+                        <Route path="/catalogo" element={<ItemListContainer titulo="Nuestros Productos"/>}/>
                         <Route path="/catalogo/:categoria" element={<ItemListContainer titulo="Remedios Lab"/>}/>
                         <Route path="/carrito" element={<ShoppingCart />} />
                         <Route exact path="/" element={<MainPage/>}/>
-
                     </Route>
                     <Route path="*" element={<PageNotFound/>}/>
                 </Routes>

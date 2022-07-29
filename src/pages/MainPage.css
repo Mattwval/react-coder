@@ -36,3 +36,23 @@
         transform: rotate(360deg);
     }
 }
+
+img {
+    width: fit-content;
+    padding: 8px;
+    height: 20vh;
+    transition: transform .2s;
+}
+img:hover {
+    transform: scale(0.8);
+}
+
+.imagesContainer {
+    background-color: #FFFBD1;
+    padding: 8px;
+    margin: 2px;
+    transition: transform .2s;
+}
+.imagesContainer:hover {
+    transform: scale(1.02);
+}

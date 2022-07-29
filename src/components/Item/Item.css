@@ -1,12 +1,19 @@
 p {
-    color:white;
+    color:brown;
     width: 16vw;
-    height: 12vh;
+    text-transform: capitalize;
+    font-weight: bold;
 }
 
 img {
-    width: fit-content;
+    width: 100px;
     height: 20vh;
-    width: 60%;
+    margin: auto;
+}
+
+.cardItem {
+    padding: 8px;
+    margin: 8px;
+    width: 10em;
 }
 

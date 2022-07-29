@@ -2,11 +2,12 @@
     margin: 20px auto;
     width: 80%;
     height: fit-content;
-    background-color: green;
+    background-color: #FFFBD1;
+    padding: 10px;
 }
 
 h2{
-    color: white;
+    color: brown;
 }
 
 .cargando {
