@@ -4,20 +4,20 @@ import ItemDetail from "../ItemDetail/ItemDetail";
 import { useState } from "react";
 import {collection, getDoc, getDocs} from "firebase/firestore";
 import {db} from "../../firebase-config";
+import ModalCargando from "../ModalCargando/ModalCargando";
 
 
 const ItemDetailContainer = () => {
 
     const {id} =  useParams()
 
-    const [cargando, setCargando] = useState("cargando producto")
+    const [showCargando, setShoeCargando] = useState(true)
     const [producto, setProducto] = useState({})
 
     useEffect(() => {
 
         setTimeout(() => {
             obtenerData(id)
-            setCargando("")
         }, 2000)
     }, [])
 
@@ -33,11 +33,13 @@ const ItemDetailContainer = () => {
             }
         }
         setProducto(producto)
+        setShoeCargando(false)
     }
 
     return (
         <div>
-            {producto ? <ItemDetail producto={producto} /> : <h3>{cargando}</h3>}
+            <ModalCargando show={showCargando} />
+            <ItemDetail producto={producto} />
         </div>
     )
 }

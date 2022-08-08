@@ -6,14 +6,12 @@ import {useState, useEffect} from "react";
 import {useParams} from "react-router";
 import {db} from '../../firebase-config'
 import {collection,getDocs, doc, getDoc} from 'firebase/firestore'
+import ModalCargando from "../ModalCargando/ModalCargando";
 
 
 const ItemListContainer = (props) => {
-    
-
     const {categoria} = useParams()
-
-    const [cargandoText, setCargandoText] = useState('Cargando Productos');
+    const [showCargando, setShowCargando] = useState(true);
     const [productos, setProductos] = useState([]);
     const productosReference = collection(db, "items")
 
@@ -31,27 +29,26 @@ const ItemListContainer = (props) => {
         }else {
             setProductos(data.docs.map((doc) => ({...doc.data(), id: doc.id})));
         }
+        setShowCargando(false)
     }
+
+    useEffect(() => {
+        console.log(showCargando)
+    }, [showCargando])
 
 
     useEffect(() => {
-        setCargandoText("Cargando Productos")
         setProductos([])
         setTimeout(() => {
             getProductos()
-            setCargandoText('')
         }, 2000)
-        
-
-
-
     }, [categoria])
 
 
     return (
         <Container className={styles.itemList}>
             <h2>{props.titulo}</h2>
-            <p className={styles.cargando}>{cargandoText}</p>
+            <ModalCargando show={showCargando} />
             <Row>
                 <ItemList productos={productos} />
             </Row>

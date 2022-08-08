@@ -9,8 +9,8 @@ const Item = (props) => {
     return (
 
         <Card className='mt-1' className="cardItem">
-            <img src={props.producto.image} />
-            <p>{props.producto.title}</p>
+            <img className="img-item" src={props.producto.image} />
+            <p className="title-item">{props.producto.title}</p>
             <Link to={`/producto/${props.producto.id}`} style={{width: "100%"}}>
                 <Button variant="secondary">ver producto</Button>
             </Link>
